@@ -1,7 +1,7 @@
 {
   "name": "pg_docs_bot",
-  "version": "0.5.3",
-  "description": "Replaces links to old versions of the PostgreSQL docs with links to the current version on DuckDuckGo (for now).",
+  "version": "0.5.4",
+  "description": "Redirects from old version of the Postgres docs to the latest (except when you're on the docs site).",
   "homepage_url": "https://github.com/mchristofides/pg_docs_bot",
   "manifest_version": 2,
   "icons": {
