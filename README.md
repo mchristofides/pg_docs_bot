@@ -1,7 +1,6 @@
 ### Intro
 pg_docs_bot is a [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/pg_docs_bot/) for getting to the current Postgres docs by default.
 
-
 ### Benefits
 When you search for Postgres documentation an old version is often indexed. Avoid the annoyance of having to click "Current" when you get there, or the frustration of having read the whole page before realising it was an old version!
 
@@ -26,3 +25,4 @@ Here is an example of a [search for "postgresql create index"](https://duckduckg
 ### Requests, issues, PRs
 There are some feature ideas in the [issues](https://github.com/mchristofides/pg_docs_bot/issues). Bug reports and PRs super welcome.
 
+![alt text](https://github.com/mchristofides/pg_docs_bot/blob/master/slonik.svg)
