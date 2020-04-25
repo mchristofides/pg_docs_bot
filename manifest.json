@@ -1,6 +1,6 @@
 {
   "name": "pg_docs_bot",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "description": "Redirects from old version of the Postgres docs to the latest (except when you're on the docs site).",
   "homepage_url": "https://github.com/mchristofides/pg_docs_bot",
   "manifest_version": 2,
@@ -14,7 +14,8 @@
   ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"]
+      "matches": ["https://www.postgresql.org/docs/*"],
+      "js": ["pgdocsbotnotice.js"]
     }
   ],
   "background": {
