@@ -17,7 +17,7 @@ There have been at least two ([first](https://www.postgresql.org/message-id/flat
 
 ### Limitations
 * Works for the English language docs only, for now
-* Works for version 7.2 links upwards, for now
+* Works for version 9.0 links upwards, for now (older versions seem rarely indexed, and helps to avoid redirecting deprecated features)
 
 ### Examples
 Here is an example of a [search for "postgresql create index"](https://duckduckgo.com/?q=postgresql+create+index). At the time of writing, the 9.1 version of the docs is the first search result (the "current" version is 12).
