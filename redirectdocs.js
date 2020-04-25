@@ -8,6 +8,10 @@ function redirectdocs(details) {
         console.log(`pg_docs_bot: directing to ${pgdocsversion}`);
         return {cancel: false};
     } 
+    else if (details.url.includes('recovery-config')) {
+        //Avoid 404 on a docs page that has no current version
+        return {cancel: false};
+    } 
     else if (details.url.startsWith('https://www.postgresql.org/docs/manuals/')) {
         //Avoid infinite redirect for manuals page
         return {cancel: false};
