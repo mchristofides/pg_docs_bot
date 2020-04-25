@@ -24,5 +24,5 @@ There have been at least two ([first](https://www.postgresql.org/message-id/flat
 Here is an example of a [search for "postgresql create index"](https://duckduckgo.com/?q=postgresql+create+index). At the time of writing, the 9.1 version of the docs is the first search result (the "current" version is 12).
 
 ### Requests, issues, PRs
-There are some feature ideas in the Issues. Bug reports and PRs super welcome.
+There are some feature ideas in the [issues](https://github.com/mchristofides/pg_docs_bot/issues). Bug reports and PRs super welcome.
 
