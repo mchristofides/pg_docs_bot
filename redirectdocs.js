@@ -15,27 +15,11 @@ function redirectdocs(details) {
     else if (/recovery-config|app-createlang|app-droplang/.test(details.url)) {
         //Avoid 404s by not redirecting deprecated features for now
         return {cancel: false};
+    }
+    else if (/manuals|faq|online-resources|books|release/.test(details.url)) {
+        //Avoid redirecting these non-versioned docs pages
+        return {cancel: false};
     } 
-    else if (details.url.startsWith('https://www.postgresql.org/docs/manuals/')) {
-        //Avoid infinite redirect for manuals page
-        return {cancel: false};
-    }
-    else if (details.url.startsWith('https://www.postgresql.org/docs/faq/')) {
-        //Avoid infinite redirect for faq pages
-        return {cancel: false};
-    }
-    else if (details.url.startsWith('https://www.postgresql.org/docs/online-resources/')) {
-        //Avoid infinite redirect for online-resources page
-        return {cancel: false};
-    }
-    else if (details.url.startsWith('https://www.postgresql.org/docs/books/')) {
-        //Avoid infinite redirect for books pages
-        return {cancel: false};
-    }
-    else if (details.url.startsWith('https://www.postgresql.org/docs/release/')) {
-        //Avoid infinite redirect for releases page
-        return {cancel: false};
-    }
     else if (details.url === 'https://www.postgresql.org/docs/') {
         //Avoid infinite redirect on root docs page
         return {cancel: false};
