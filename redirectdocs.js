@@ -11,17 +11,9 @@ function redirectdocs(details) {
     else if (/6\.3|6\.4|6\.5|7\.0|7\.1|7\.2|7\.3|7\.4|8\.0|8\.1|8\.2|8\.3|8\.4/.test(details.url)) {
         //Don't redirect super old versions that are rarely indexed and sometimes deprecated
         return {cancel: false};
-    } 
-    else if (details.url.includes('recovery-config')) {
-        //Avoid 404 on a docs page that has no current version
-        return {cancel: false};
-    } 
-    else if (details.url.includes('app-createlang')) {
-        //Avoid 404 on a docs page that has no current version
-        return {cancel: false};
-    } 
-    else if (details.url.includes('app-droplang')) {
-        //Avoid 404 on a docs page that has no current version
+    }
+    else if (/recovery-config|app-createlang|app-droplang/.test(details.url)) {
+        //Avoid 404s by not redirecting deprecated features for now
         return {cancel: false};
     } 
     else if (details.url.startsWith('https://www.postgresql.org/docs/manuals/')) {
