@@ -8,6 +8,10 @@ function redirectdocs(details) {
         console.log(`pg_docs_bot: directing to ${pgdocsversion}`);
         return {cancel: false};
     } 
+    else if (/6\.3|6\.4|6\.5|7\.0|7\.1|7\.2|7\.3|7\.4|8\.0|8\.1|8\.2|8\.3|8\.4/.test(details.url)) {
+        //Don't redirect super old versions that are rarely indexed and sometimes deprecated
+        return {cancel: false};
+    } 
     else if (details.url.includes('recovery-config')) {
         //Avoid 404 on a docs page that has no current version
         return {cancel: false};
