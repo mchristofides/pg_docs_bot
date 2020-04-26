@@ -12,6 +12,14 @@ function redirectdocs(details) {
         //Avoid 404 on a docs page that has no current version
         return {cancel: false};
     } 
+    else if (details.url.includes('app-createlang')) {
+        //Avoid 404 on a docs page that has no current version
+        return {cancel: false};
+    } 
+    else if (details.url.includes('app-droplang')) {
+        //Avoid 404 on a docs page that has no current version
+        return {cancel: false};
+    } 
     else if (details.url.startsWith('https://www.postgresql.org/docs/manuals/')) {
         //Avoid infinite redirect for manuals page
         return {cancel: false};
