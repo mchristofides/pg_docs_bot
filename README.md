@@ -11,7 +11,7 @@ There have been at least two ([first](https://www.postgresql.org/message-id/flat
 
 ### Features
 * Redirects old version links to the "current" version
-* Don't redirect when on the docs, so you can still check old versions (the main problem with generic redirectors)
+* Doesn't redirect when on the docs, so you can still check old versions (the main problem with generic redirectors)
 
 ...that's it for now.
 
