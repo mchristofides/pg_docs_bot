@@ -1,6 +1,8 @@
 function redirectdocs(details) {
     var pgdocsversion = 'current';
-    browser.storage.local.set({'test123': details.url});
+    var test123 = 'testRedirect';
+    browser.storage.local.set({'test123': 'details.url'}).then();
+    
     if (details.originUrl.startsWith('https://www.postgresql.org/')) {
         console.log('pg_docs_bot: do nothing on postgresql.org');
         return {cancel: false};
