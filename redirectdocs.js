@@ -1,33 +1,27 @@
 function redirectdocs(details) {
-    var pgdocsversion = 'current';
+    var pgdocsversion = 'docs\/current\/';
     if (details.originUrl.startsWith('https://www.postgresql.org/')) {
-        console.log('pg_docs_bot: do nothing on postgresql.org');
-        return {cancel: false};
-    } 
-    else if (details.url.includes(pgdocsversion)) {
-        console.log(`pg_docs_bot: directing to ${pgdocsversion}`);
-        return {cancel: false};
-    } 
-    else if (/6\.3|6\.4|6\.5|7\.0|7\.1|7\.2|7\.3|7\.4|8\.0|8\.1|8\.2|8\.3|8\.4/.test(details.url)) {
-        //Don't redirect super old versions that are rarely indexed and sometimes deprecated
+        //Do not redirect when coming from postgresql.org, to allow people to deliberately view older versions
         return {cancel: false};
     }
     else if (/recovery-config|app-createlang|app-droplang/.test(details.url)) {
         //Avoid 404s by not redirecting deprecated features for now
         return {cancel: false};
     }
-    else if (/manuals|faq|online-resources|books|release/.test(details.url)) {
-        //Avoid redirecting these non-versioned docs pages
+    else if (/\/release/.test(details.url)) {
+        //Avoid redirecting release pages that sometimes redirect from current back to their own version, and seem better to not redirect in any case
         return {cancel: false};
-    } 
-    else if (details.url === 'https://www.postgresql.org/docs/') {
-        //Avoid infinite redirect on root docs page
-        return {cancel: false};
-    } 
-    else {
-        console.log('pg_docs_bot: checking link');
-        details.url = details.url.replace(/current|9\.0|9\.1|9\.2|9\.3|9\.4|9\.5|9\.6|10|11|12|13/, pgdocsversion);
-        return {redirectUrl: details.url};
+    }
+    else { 
+        //Replace version numbers 9+ as older rarely indexed and several now deprecated
+        var redirectUrl = details.url.replace(/docs\/current\/|docs\/9\/|docs\/9\.1\/|docs\/9\.2\/|docs\/9\.3\/|docs\/9\.4\/|docs\/9\.5\/|docs\/9\.6\/|docs\/10\/|docs\/11\/|docs\/12\/|docs\/13\//, pgdocsversion); 
+        if (redirectUrl === details.url) {
+            return {cancel: false};
+        } 
+        else { 
+            console.log(`pg_docs_bot: redirecting to ${pgdocsversion}`); 
+            return {redirectUrl: redirectUrl};
+        }
     }
   };
 
