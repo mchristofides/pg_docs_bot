@@ -19,8 +19,10 @@ function redirectdocs(details) {
             return {cancel: false};
         } 
         else { 
+            var url = new URL(redirectUrl);
+            url.searchParams.append('redirectedURL', details.url);
             console.log(`pg_docs_bot: redirecting to ${pgdocsversion}`); 
-            return {redirectUrl: redirectUrl};
+            return {redirectUrl: encodeURI(url)};
         }
     }
   };
