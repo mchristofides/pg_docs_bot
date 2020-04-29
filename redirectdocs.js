@@ -8,7 +8,7 @@ function redirectdocs(details) {
         //Avoid 404s by not redirecting deprecated features for now
         return {cancel: false};
     }
-    else if (/release/.test(details.url)) {
+    else if (/\/release/.test(details.url)) {
         //Avoid redirecting release pages that sometimes redirect from current back to their own version 
         return {cancel: false};
     }
