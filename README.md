@@ -10,7 +10,8 @@ Naturally, this extension doesn't help solve the root cause(s) of this issue.
 There have been at least two ([first](https://www.postgresql.org/message-id/flat/38c68b83-30ae-c039-acd0-9e853997edc4@2ndquadrant.com), [second](https://www.postgresql.org/message-id/flat/CALWCfdKLed3RJVa8AtTqYw1GzjRbGzeZL7G4TxVA8vEmLxm96g%40mail.gmail.com)) good conversations on the mailing lists about how to teach the search engines which version to link to. Please continue to encourage people to link to the "current" version around the web, which will gradually help.
 
 ### Features
-* Redirects old version links to the "current" version
+* Redirects links to the "current" version
+* After redirecting, displays a notice (including a link to the page you were redirected from)
 * Doesn't redirect when coming from another page in the docs, so you can still check old versions (the main problem with generic redirectors)
 
 ...that's it for now.
