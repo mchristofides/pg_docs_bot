@@ -4,6 +4,11 @@
   "description": "Redirects from old versions of the Postgres docs to the latest (except when you're coming from another page in the docs, or when the feature is deprecated).",
   "homepage_url": "https://github.com/mchristofides/pg_docs_bot",
   "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "48.0"
+    }
+  },
   "icons": {
     "48": "slonik-in-glasses.svg"
   },
