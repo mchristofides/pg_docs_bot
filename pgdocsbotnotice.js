@@ -1,5 +1,5 @@
 var url = new URL(document.location);
-var redirectedURL = decodeURIComponent(url.searchParams.get('redirectedURL'));
+var redirectedURL = decodeURIComponent(url.searchParams.get('pg-docs-bot-redirected'));
 var redirectedURL = new URL(redirectedURL);
 var redirectedPath = redirectedURL.pathname;
 if (redirectedURL !== 'null') { 

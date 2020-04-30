@@ -20,7 +20,7 @@ function redirectdocs(details) {
         } 
         else { 
             var url = new URL(redirectUrl);
-            url.searchParams.append('redirectedURL', details.url);
+            url.searchParams.append('pg-docs-bot-redirected', details.url);
             console.log(`pg_docs_bot: redirecting to ${pgdocsversion}`); 
             return {redirectUrl: encodeURI(url)};
         }
