@@ -14,7 +14,7 @@ function redirectdocs(details) {
     }
     else { 
         //Replace version numbers 9+ as older rarely indexed and several now deprecated
-        var redirectUrl = details.url.replace(/docs\/current\/|docs\/9\/|docs\/9\.1\/|docs\/9\.2\/|docs\/9\.3\/|docs\/9\.4\/|docs\/9\.5\/|docs\/9\.6\/|docs\/10\/|docs\/11\/|docs\/12\/|docs\/13\//, pgdocsversion); 
+        var redirectUrl = details.url.replace(/docs\/(current\/|9\/|9\.1\/|9\.2\/|9\.3\/|9\.4\/|9\.5\/|9\.6\/|10\/|11\/|12\/|13\/)/, pgdocsversion); 
         if (redirectUrl === details.url) {
             return {cancel: false};
         } 
