@@ -27,4 +27,4 @@ Here is an example of a [search for "postgresql create index"](https://duckduckg
 ### Requests, issues, PRs
 There are some feature ideas in the [issues](https://github.com/mchristofides/pg_docs_bot/issues). Bug reports and PRs super welcome.
 
-![alt text](https://github.com/mchristofides/pg_docs_bot/blob/master/slonik-in-glasses.svg)
+![alt text](https://github.com/mchristofides/pg_docs_bot/blob/master/slonik_in_glasses_128.png)

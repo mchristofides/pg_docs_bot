@@ -5,7 +5,8 @@
   "homepage_url": "https://github.com/mchristofides/pg_docs_bot",
   "manifest_version": 2,
   "icons": {
-    "48": "slonik-in-glasses.svg"
+    "48": "slonik_in_glasses_48.png",
+    "128": "slonik_in_glasses_128.png"
   },
   "permissions": [
     "webRequest",
