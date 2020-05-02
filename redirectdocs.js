@@ -1,6 +1,13 @@
-function redirectdocs(details) {
+chrome.webRequest.onBeforeRequest.addListener(function(details){
     var pgdocsversion = 'docs\/current\/';
-    if (details.originUrl.startsWith('https://www.postgresql.org/')) {
+    //Firefox uses details.originUrl, Chrome uses details.initiator
+    if (details.originUrl) {
+        var origin = details.originUrl;
+    }
+    else {
+        var origin = details.initiator;
+    }
+    if (origin.startsWith('https://www.postgresql.org')) {
         //Do not redirect when coming from postgresql.org, to allow people to deliberately view older versions
         return {cancel: false};
     }
@@ -25,6 +32,4 @@ function redirectdocs(details) {
             return {redirectUrl: encodeURI(url)};
         }
     }
-  };
-
-browser.webRequest.onBeforeRequest.addListener(redirectdocs,{urls: ['https://www.postgresql.org/docs/*']},['blocking']);
+  }, {urls: ['https://www.postgresql.org/docs/*']},['blocking']);
