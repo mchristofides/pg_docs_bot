@@ -1,5 +1,10 @@
 ### Intro
-pg_docs_bot is a [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/pg_docs_bot/) for getting to the current Postgres docs by default.
+pg_docs_bot is a browser extension for getting to the current Postgres docs by default.
+
+[Firefox addon](https://addons.mozilla.org/en-US/firefox/addon/pg_docs_bot/).
+
+[Chrome extension](https://chrome.google.com/webstore/detail/pgdocsbot/hkbfkapgdfedgidpfbhlogecohcnaeod?hl=en-GB).
+
 
 ### Benefits
 When you search for Postgres documentation an old version is often indexed. Avoid the annoyance of having to click "Current" when you get there, or the frustration of having read the whole page before realising it was an old version!
@@ -20,6 +25,7 @@ There have been at least two ([first](https://www.postgresql.org/message-id/flat
 ### Limitations
 * Works for the English language docs only, for now
 * Works for version 9.0 links upwards, for now (older versions seem rarely indexed, and helps to avoid redirecting deprecated features)
+* Chrome extension works on a limited list of search engines and stack exchange sites (to avoid needing <arl_urls> permission)
 
 ### Examples
 Here is an example of a [search for "postgresql create index"](https://duckduckgo.com/?q=postgresql+create+index). At the time of writing, the 9.1 version of the docs is the first search result (the "current" version is 12).
