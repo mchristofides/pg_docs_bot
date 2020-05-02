@@ -1,6 +1,8 @@
 var url = new URL(document.location);
 var redirectedURL = decodeURIComponent(url.searchParams.get('pg-docs-bot-redirected'));
-var redirectedURL = new URL(redirectedURL);
+if (redirectedURL) {
+    var redirectedURL = new URL(redirectedURL);
+}
 var redirectedPath = redirectedURL.pathname;
 if (redirectedURL !== 'null') { 
     var hover = document.createElement('Hover');
