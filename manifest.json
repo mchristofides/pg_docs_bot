@@ -15,8 +15,7 @@
   "permissions": [
     "webRequest",
     "webRequestBlocking",
-    "https://www.postgresql.org/docs/*",
-    "storage"
+    "https://www.postgresql.org/docs/*"
   ],
   "content_scripts": [
     {
