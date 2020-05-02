@@ -1,7 +1,7 @@
 {
   "name": "pg_docs_bot",
   "version": "0.9.0",
-  "description": "Redirects from old versions of the Postgres docs to the latest (except when you're coming from another page in the docs, or when the feature is deprecated).",
+  "description": "Redirects from old versions of the Postgres docs to the latest (except from the docs, or when the feature is deprecated).",
   "homepage_url": "https://github.com/mchristofides/pg_docs_bot",
   "manifest_version": 2,
   "icons": {
