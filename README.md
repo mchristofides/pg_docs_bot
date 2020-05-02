@@ -1,9 +1,8 @@
 ### Intro
 pg_docs_bot is a browser extension for getting to the current Postgres docs by default.
 
-[Firefox addon](https://addons.mozilla.org/en-US/firefox/addon/pg_docs_bot/).
-
-[Chrome extension](https://chrome.google.com/webstore/detail/pgdocsbot/hkbfkapgdfedgidpfbhlogecohcnaeod?hl=en-GB).
+* [Firefox addon](https://addons.mozilla.org/en-US/firefox/addon/pg_docs_bot/)
+* [Chrome extension](https://chrome.google.com/webstore/detail/pgdocsbot/hkbfkapgdfedgidpfbhlogecohcnaeod?hl=en-GB)
 
 
 ### Benefits
