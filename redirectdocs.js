@@ -11,7 +11,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
         //Do not redirect when coming from postgresql.org, to allow people to deliberately view older versions
         return {cancel: false};
     }
-    else if (/\/(recovery-config|app-createlang|app-droplang).html/.test(details.url)) {
+    else if (/\/(recovery-config|app-createlang|app-droplang|indexcost).html/.test(details.url)) {
         //Avoid 404s by not redirecting deprecated features for now
         return {cancel: false};
     }
