@@ -22,7 +22,7 @@ There have been at least two ([first](https://www.postgresql.org/message-id/flat
 
 ### Limitations
 * Works for the English language docs only, for now
-* Works for version 9.0 links upwards, for now (older versions seem rarely indexed, and helps to avoid redirecting deprecated features)
+* Works for version 7.0 links upwards
 * Chrome extension works on a limited list of search engines and stack exchange sites (to avoid needing <all_urls> permission)
 
 ### Examples
