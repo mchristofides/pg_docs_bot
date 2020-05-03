@@ -11,7 +11,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
         //Do not redirect when coming from postgresql.org, to allow people to deliberately view older versions
         return {cancel: false};
     }
-    else if (/\/(recovery-config|app-createlang|app-droplang|indexcost)\.html/.test(details.url)) {
+    else if (/\/(recovery-config|app-createlang|app-droplang|indexcost|inherit|manage|failure|failure-disk-failed|programmer-client|developer)\.html/.test(details.url)) {
         //Avoid 404s by not redirecting deprecated features for now
         return {cancel: false};
     }
@@ -20,8 +20,8 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
         return {cancel: false};
     }
     else { 
-        //Replace version numbers 9+ as older rarely indexed and several now deprecated
-        var redirectUrl = details.url.replace(/docs\/(current\/|9|9\.0|9\.1|9\.2|9\.3|9\.4|9\.5|9\.6|10|11|12|13)\//, pgdocsversion); 
+        //Replace version numbers 7+ as notice now makes 404s less bad. Should probably also replace devel once people can set a default.
+        var redirectUrl = details.url.replace(/docs\/(current\/|7|7\.0|7\.1|7\.2|7\.3|7\.4|8|8\.0|8\.1|8\.2|8\.3|8\.4|9|9\.0|9\.1|9\.2|9\.3|9\.4|9\.5|9\.6|10|11|12|13)\//, pgdocsversion); 
         if (redirectUrl === details.url) {
             return {cancel: false};
         } 
