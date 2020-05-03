@@ -21,7 +21,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
     }
     else { 
         //Replace version numbers 9+ as older rarely indexed and several now deprecated
-        var redirectUrl = details.url.replace(/docs\/(current\/|9\/|9\.1\/|9\.2\/|9\.3\/|9\.4\/|9\.5\/|9\.6\/|10\/|11\/|12\/|13\/)/, pgdocsversion); 
+        var redirectUrl = details.url.replace(/docs\/(current\/|9\/|9\.0\/|9\.1\/|9\.2\/|9\.3\/|9\.4\/|9\.5\/|9\.6\/|10\/|11\/|12\/|13\/)/, pgdocsversion); 
         if (redirectUrl === details.url) {
             return {cancel: false};
         } 
