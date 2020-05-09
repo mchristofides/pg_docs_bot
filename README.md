@@ -18,12 +18,11 @@ There have been at least two ([first](https://www.postgresql.org/message-id/flat
 * Avoids redirecting some deprecated features (to avoid 404s)
 * Doesn't redirect when coming from another page in the docs, so you can still check old versions (the main problem with generic redirectors)
 
-...that's it for now.
-
 ### Limitations
-* Works for the English language docs only, for now
+* Only supports redirecting to "current" (request [support for other versions](https://github.com/mchristofides/pg_docs_bot/issues/1))
+* Works for the English language docs
 * Works for version 7.0 links upwards
-* Chrome extension works on a limited list of search engines and stack exchange sites (to avoid needing <all_urls> permission)
+* Chrome extension works on a limited list of search engines and Stack Exchange sites (to avoid needing <all_urls> permission)
 
 ### Examples
 Here is an example of a [search for "postgresql create index"](https://duckduckgo.com/?q=postgresql+create+index). At the time of writing, the 9.1 version of the docs is the first search result (the "current" version is 12).
