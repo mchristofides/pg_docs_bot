@@ -13,13 +13,13 @@ Naturally, this extension doesn't help solve the root cause(s) of this issue.
 There have been many conversations on the PostgreSQL mailing lists about how to teach search engines which version to link to. (June 2021 update: there is a [new thread](https://www.postgresql.org/message-id/flat/CABUevEyGwaZE8KJg%3D-K4f7moUo%3DUbV3AFbnmtTB-c31ojNn2Vg%40mail.gmail.com#611b31dcdc09aba835ef561ad15bed69) that seems promising). Please also continue to encourage people (eg on Stack Overflow or in blog posts) to link to the `current` version, which should gradually help.
 
 ### Features of pg_docs_bot
-* Redirects links to the "current" version
+* Redirects links to the `current` version
 * After redirecting, displays a notice (including a link to the page you were redirected from)
 * Avoids redirecting some deprecated features (to avoid 404s)
 * Doesn't redirect when coming from another page in the docs, so you can still check old versions (the main problem with generic redirectors)
 
 ### Limitations
-* Only supports redirecting to "current" (request [support for other versions](https://github.com/mchristofides/pg_docs_bot/issues/1))
+* Only supports redirecting to `current` (request [support for other versions](https://github.com/mchristofides/pg_docs_bot/issues/1))
 * Works for the English language docs
 * Works for version 7.0 links upwards
 * Chrome extension works on a limited list of search engines and Stack Exchange sites (to avoid needing <all_urls> permission)
