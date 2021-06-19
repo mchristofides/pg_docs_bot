@@ -2,17 +2,17 @@
 pg_docs_bot is a browser extension for getting to the current Postgres docs by default.
 * [Firefox addon](https://addons.mozilla.org/en-US/firefox/addon/pg_docs_bot/)
 * [Chrome extension](https://chrome.google.com/webstore/detail/pgdocsbot/hkbfkapgdfedgidpfbhlogecohcnaeod?hl=en-GB)
-
+* It is also trivial to install manually, if you prefer
 
 ### Benefits
-When you search for Postgres related things, an old version of the documentation is often indexed. Similarly, some answers on sites like Stack Overflow link to old versions of the documentation. pg_docs_bot helps you avoid the annoyance of having to click "Current" when you get there, the frustration of having read the whole page before realising it was an old version, or even not realising that it was an out of date version.
+When you search for Postgres related things, an old version of the documentation is often indexed. Similarly, some answers on sites like Stack Overflow link to old versions of the documentation. pg_docs_bot helps you avoid the annoyance of having to click "Current" when you get there, the frustration of having read the whole page before realising it was an old version, or even worse, not realising that it was an out of date version at all.
 
-### Fixing the root causes
+### Fixing the root cause
 Naturally, this extension doesn't help solve the root cause(s) of this issue.
 
-There have been at least two ([first](https://www.postgresql.org/message-id/flat/38c68b83-30ae-c039-acd0-9e853997edc4@2ndquadrant.com), [second](https://www.postgresql.org/message-id/flat/CALWCfdKLed3RJVa8AtTqYw1GzjRbGzeZL7G4TxVA8vEmLxm96g%40mail.gmail.com)) good conversations on the mailing lists about how to teach the search engines which version to link to. **Please continue to encourage people to link to the "current" version, which will gradually help!**
+There have been many conversations on the PostgreSQL mailing lists about how to teach search engines which version to link to. (June 2021 update: there is a [new thread](https://www.postgresql.org/message-id/flat/CABUevEyGwaZE8KJg%3D-K4f7moUo%3DUbV3AFbnmtTB-c31ojNn2Vg%40mail.gmail.com#611b31dcdc09aba835ef561ad15bed69) that seems promising). Please also continue to encourage people (eg on Stack Overflow or in blog posts) to link to the `current` version, which should gradually help.
 
-### Features
+### Features of pg_docs_bot
 * Redirects links to the "current" version
 * After redirecting, displays a notice (including a link to the page you were redirected from)
 * Avoids redirecting some deprecated features (to avoid 404s)
