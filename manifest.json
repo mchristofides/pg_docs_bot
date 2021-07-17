@@ -1,6 +1,6 @@
 {
   "name": "pg_docs_bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Redirects PostgreSQL docs links to the current version (except when coming from the docs, or to deprecated features).",
   "homepage_url": "https://github.com/mchristofides/pg_docs_bot",
   "manifest_version": 2,
@@ -17,7 +17,8 @@
     "https://*.ecosia.org/*",
     "https://*.bing.com/*",
     "https://stackoverflow.com/*",
-    "https://dba.stackexchange.com/*"
+    "https://dba.stackexchange.com/*",
+    "https://search.brave.com/*"
   ],
   "content_scripts": [
     {
