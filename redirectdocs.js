@@ -11,8 +11,8 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
         //Do not redirect when coming from postgresql.org, to allow people to deliberately view older versions
         return {cancel: false};
     }
-    else if (/\/(recovery-config|app-createlang|app-droplang|indexcost|inherit|manage|failure|failure-disk-failed|programmer-client|developer)\.html/.test(details.url)) {
-        //Avoid 404s by not redirecting deprecated features for now
+    else if (/\/(archive-recovery-settings|recovery-target-settings|app-createlang|app-droplang|indexcost|inherit|manage|start-manage-db|failure|failure-disk-failed|programmer-client|developer|part-developer)\.html/.test(details.url)) {
+        //Avoid 404s by not redirecting deprecated pages
         return {cancel: false};
     }
     else if (/\/release/.test(details.url)) {
