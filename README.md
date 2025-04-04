@@ -21,7 +21,7 @@ For the likes of Stack Overflow and blog posts, please do link to the `current` 
 * Doesn't redirect when coming from another page in the docs, so you can still check old versions (the main problem with generic redirectors)
 
 ### Limitations
-* Only supports redirecting to `current` (here's [an alternative that does](https://github.com/dougharris/unified_docs_switcher))
+* Only supports redirecting to `current` (here's [an alternative that supports picking a version](https://github.com/dougharris/unified_docs_switcher))
 * Works for the English language docs
 * Works for version v7.0 through v17 links
 * The Chrome extension only works on a limited set of search engines and Stack Exchange sites (to avoid needing the <all_urls> permission)
