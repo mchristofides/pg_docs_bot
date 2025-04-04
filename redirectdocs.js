@@ -1,35 +1,78 @@
-chrome.webRequest.onBeforeRequest.addListener(function(details){
-    var pgdocsversion = 'docs\/current\/';
-    //Firefox uses details.originUrl, Chrome uses details.initiator
-    if (details.originUrl) {
-        var origin = details.originUrl;
-    }
-    else {
-        var origin = details.initiator;
-    }
-    if (origin.startsWith('https://www.postgresql.org')) {
-        //Do not redirect when coming from postgresql.org, to allow people to deliberately view older versions
-        return {cancel: false};
-    }
-    else if (/\/(archive-recovery-settings|recovery-target-settings|app-createlang|app-droplang|indexcost|inherit|manage|start-manage-db|failure|failure-disk-failed|programmer-client|developer|part-developer)\.html/.test(details.url)) {
-        //Avoid 404s by not redirecting deprecated pages
-        return {cancel: false};
-    }
-    else if (/\/release/.test(details.url)) {
-        //Avoid redirecting release pages that sometimes redirect from current back to their own version, and seem better to not redirect in any case
-        return {cancel: false};
-    }
-    else { 
-        //Replace version numbers 7+ as notice now makes 404s less bad. Should probably also replace devel once people can set a default.
-        var redirectUrl = details.url.replace(/docs\/(current\/|7|7\.0|7\.1|7\.2|7\.3|7\.4|8|8\.0|8\.1|8\.2|8\.3|8\.4|9|9\.0|9\.1|9\.2|9\.3|9\.4|9\.5|9\.6|10|11|12|13)\//, pgdocsversion); 
-        if (redirectUrl === details.url) {
-            return {cancel: false};
-        } 
-        else { 
-            var url = new URL(redirectUrl);
-            url.searchParams.append('pg-docs-bot-redirected', details.url);
-            console.log(`pg_docs_bot: redirecting to ${pgdocsversion}`); 
-            return {redirectUrl: encodeURI(url)};
+async function initExtension() {
+  // Create small individual rules to keep Chrome happy
+  const rules = [];
+  let ruleId = 1;
+  const versions = [
+    '7', '7.0', '7.1', '7.2', '7.3', '7.4', 
+    '8', '8.0', '8.1', '8.2', '8.3', '8.4', 
+    '9', '9.0', '9.1', '9.2', '9.3', '9.4', '9.5', '9.6',
+    '10', '11', '12', '13', '14', '15', '16', '17'
+  ];
+  const deprecatedPages = [
+    'archive-recovery-settings',
+    'recovery-target-settings',
+    'app-createlang',
+    'app-droplang',
+    'indexcost',
+    'inherit',
+    'manage',
+    'start-manage-db',
+    'failure',
+    'failure-disk-failed',
+    'programmer-client',
+    'developer',
+    'part-developer',
+    'release'
+  ];
+  for (const version of versions) {
+    rules.push({
+      id: ruleId++,
+      priority: 1, //Lower priority than non-redirects
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: "https://www.postgresql.org/docs/current/\\1?pg-docs-bot-redirected=https://www.postgresql.org/docs/" + version + "/\\1"
         }
+      },
+      condition: {
+        regexFilter: `^https://www\\.postgresql\\.org/docs/${version}/([^/]+\\.html)`,
+        resourceTypes: ["main_frame"]
+      }
+    });
+  }
+  // Prevent redirects when already on postgresql.org
+  rules.push({
+    id: ruleId++,
+    priority: 3, // Higher priority than redirects and deprecated pages
+    action: {
+      type: "allow"
+    },
+    condition: {
+      urlFilter: "https://www.postgresql.org/docs/",
+      initiatorDomains: ["postgresql.org", "www.postgresql.org"],
+      resourceTypes: ["main_frame"]
     }
-  }, {urls: ['https://www.postgresql.org/docs/*']},['blocking']);
+  });
+  for (const version of versions) {
+    for (const page of deprecatedPages) {
+      rules.push({
+        id: ruleId++,
+        priority: 2, // Higher priority than redirects
+        action: {
+          type: "allow" // Don't redirect
+        },
+        condition: {
+          urlFilter: `https://www.postgresql.org/docs/${version}/${page}.html`,
+          resourceTypes: ["main_frame"]
+        }
+      });
+    }
+  }
+  // Register the rules
+  await chrome.declarativeNetRequest.updateDynamicRules({
+    removeRuleIds: Array.from({length: ruleId - 1}, (_, i) => i + 1),
+    addRules: rules
+  });
+  console.log('pg_docs_bot: Registered', rules.length, 'redirect rules');
+}
+initExtension();
