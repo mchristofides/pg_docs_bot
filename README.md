@@ -10,7 +10,7 @@ When you search for Postgres related things, an old version of the documentation
 pg_docs_bot helps you avoid having to click "Current" when you get there, or the frustration of reading the information before realising it's out of date, or (even worse) not realising at all.
 
 ### Fixing the root cause
-There have been many conversations on the PostgreSQL mailing lists about how to teach search engines which version to link to. In 2021 a [huge improvement](https://www.postgresql.org/message-id/flat/CABUevEyGwaZE8KJg%3D-K4f7moUo%3DUbV3AFbnmtTB-c31ojNn2Vg%40mail.gmail.com#611b31dcdc09aba835ef561ad15bed69) was made to the docs to let search engines know that the `current` version should be considered canonical, which has helped tremendously.
+There have been many conversations on the PostgreSQL mailing lists about how to teach search engines which version to link to. In 2023 a [huge improvement](https://www.postgresql.org/message-id/flat/3e53d4b1-ad8d-27e6-631a-59d3d21ba6c6%40postgresql.org#3e35032e6a67b6ca0a1a1f508663e134) was made to the docs to let search engines know that the `current` version should be considered canonical, which has helped tremendously.
 
 For the likes of Stack Overflow and blog posts, please do link to the `current` version whenever you aren't specifically referencing something version-specific.
 
